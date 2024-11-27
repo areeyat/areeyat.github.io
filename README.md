@@ -1,2 +1,2 @@
 # areeyat.github.io
-Loading! 
+This is Areeya's website! Keep out! 
