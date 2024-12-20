@@ -1,8 +1,13 @@
-theme: minimal-mistakes-jekyll
+
 minimal_mistakes_skin: dirt
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 
 atom_feed:
   hide: true
+
+plugins:
+  - jekyll-include-cache
 
 collections:
   pad-thai:
