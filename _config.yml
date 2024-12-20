@@ -2,6 +2,7 @@
 minimal_mistakes_skin: dirt
 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+url: areeyat.github.io
 
 atom_feed:
   hide: true
