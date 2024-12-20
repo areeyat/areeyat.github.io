@@ -1,2 +1,10 @@
-title: Areeya's website
-description: This is Areeya's website! 
+collections:
+  pad-thai:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "pad-thai"
+    values:
+      layout: pad-thai
