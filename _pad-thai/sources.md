@@ -18,6 +18,4 @@ Van Esterik, Penny. “Dublin Gastronomy Symposium.” TU Dublin, Culinary Colon
 
 Van Esterik, Penny. Food Culture in Southeast Asia. Greenwood Press, 2008.
 
-Van Esterik, Penny. Food Culture in Southeast Asia. Greenwood Press, 2008.
-
 Yao, Yao, et al. “Pad Thai: the Thai-ization of Chinese food and the Thai nationalism project by the Phibunsongkhram government.” National Identities, vol. 26, no. 5, 8 Aug. 2024, pp. 501–519, https://doi.org/10.1080/14608944.2024.2369818. 
