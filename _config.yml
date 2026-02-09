@@ -1,7 +1,6 @@
 title: Areeya Tipyasothi
 
-theme: "hitchens-theme"
-ignore_theme_config: true
+theme: hitchens-theme
 url: 'https://areeyat.github.io/'
 baseurl: ''
 
@@ -21,10 +20,10 @@ defaults:
       path: ""
       type: "pad-thai"
     values:
-      layout: splash
+      layout: page
       show_date: false
   - scope:
       path: ""
       type: pages
     values:
-      layout: splash
+      layout: page
