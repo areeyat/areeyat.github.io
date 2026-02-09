@@ -1,6 +1,7 @@
 title: Areeya Tipyasothi
 
 theme: "hitchens-theme"
+ignore_theme_config: true
 url: 'https://areeyat.github.io/'
 baseurl: ''
 
