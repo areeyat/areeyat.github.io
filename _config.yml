@@ -1,7 +1,6 @@
 title: Areeya Tipyasothi
-minimal_mistakes_skin: dark
 
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+theme: hitchens-theme
 url: 'https://areeyat.github.io/'
 baseurl: ''
 
