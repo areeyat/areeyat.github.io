@@ -14,6 +14,7 @@
 
   window.addEventListener('load', function () {
     init();
+    asterisk.style.visibility = 'visible';
     window.addEventListener('resize', init);
     setInterval(function () {
       pos += dir * 12;
