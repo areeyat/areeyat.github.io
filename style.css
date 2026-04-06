@@ -21,6 +21,27 @@ main {
     color: #333;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#asterisk {
+    position: absolute;
+    font-family: 'Jacquard 12', serif;
+    font-size: 2.5rem;
+    color: #333;
+    padding-top: 2rem;
+}
+
 h1 a {
     text-decoration: none;
     color: inherit;
