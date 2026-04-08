@@ -1,4 +1,13 @@
 (function () {
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('nav a').forEach(function (link) {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+})();
+
+(function () {
   var asterisk = document.getElementById('asterisk');
   var h1 = document.querySelector('h1');
   var pos, minX, maxX, dir = 1;
