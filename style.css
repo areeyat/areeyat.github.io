@@ -5,6 +5,12 @@ body {
     flex-direction: column;
 }
 
+p {
+    font-family: Garamond, serif;
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
 main {
     flex: 1;
     display: flex;
@@ -131,4 +137,38 @@ main.projects-main .blurb {
 
 nav a.active {
     font-weight: bold;
+}
+
+main.about-main {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.2rem;
+    font-family: 'Amaranth', sans-serif;
+}
+
+main.about-main h2 {
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+main.contact-main {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.2rem;
+    font-family: Garamond, serif;
+}
+
+main.contact-main a {
+    color: #333;
+    text-decoration: none;
+}
+
+main.contact-main a:visited {
+    color: #333;
+}
+
+main.contact-main ul {
+    list-style-type: none;
+    padding-left: 0;
 }
