@@ -2,39 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>areeya tipyasothi</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&family=Amaranth:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="header-row">
-      <h1><a href="/">areeya tipyasothi</a></h1>
-      <span id="asterisk-left">*</span>
-      <span id="asterisk">*</span>
-    </div>
-    <nav>
-      <a href="about.html">about</a>
-      <a href="projects.html">projects</a>
-      <a href="contact.html">contact</a>
-      <a href="sakigumi.html">sakigumi</a>
-    </nav>
-  </header>
-  <script src="asterisk.js"></script>
 
+  <nav>
+    <div class="nav-name-row">
+      <span class="nav-asterisk" id="asterisk-left">*</span>
+      <a href="#home" class="nav-logo">areeya tipyasothi</a>
+      <span class="nav-asterisk" id="asterisk-right">*</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="blog.html">blog</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <p class="center-text">hi! i'm areeya. i like to code and design data stuff. my professional interests include data journalism, computational social science, and civic tech. i'm particularly interested in how we can make information accessible to everyone.<br><br>i currently live in seattle with my two cats, saki and gumi. </p>
-    <section id="about"></section>
-    <section id="projects"></section>
-    <section id="contact"></section>
+
+    <!-- HERO -->
+    <section id="home">
+      <div class="hero-ascii">
+        <pre class="ascii-placeholder">[ ascii art goes here ]</pre>
+      </div>
+      <p class="hero-tagline">
+        hi, i'm areeya! i like to code and design data stuff. i'm interested in
+        data journalism, computational social science, and how we can make information
+        accessible to everyone.
+      </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <span class="section-label">01 — about</span>
+      <div class="about-grid">
+        <div>
+          <h2 class="about-heading">who<br>i am</h2>
+        </div>
+        <div class="about-body">
+          <p>
+            i'm a data analyst based in seattle and the bay area.
+            i have two cats, <a href="sakigumi.html" style="color:inherit;">saki and gumi</a>.
+          </p>
+          <p>
+            B.A. Data Science, UC Berkeley. Journalism minor.
+            my work sits at the intersection of data engineering, investigative reporting,
+            and civic technology. i care about public records, criminal justice data,
+            and tools that serve people.
+          </p>
+          <p>
+            currently open to data analyst and adjacent roles — especially in journalism,
+            civic tech, and organizations using technology for public good.
+          </p>
+          <div class="about-tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">pandas</span>
+            <span class="tag">GeoPandas</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Plotly / Dash</span>
+            <span class="tag">NLP</span>
+            <span class="tag">data journalism</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <span class="section-label">02 — projects</span>
+      <div class="projects-header">
+        <h2 class="projects-heading">work</h2>
+      </div>
+      <div class="project-list">
+
+        <a href="projects/Analyzing_Crop_Diversity_&_Food_Access_in_the_US.html" class="project-item">
+          <span class="project-num">01</span>
+          <div class="project-info">
+            <div class="project-title">analyzing crop diversity & food access</div>
+            <p class="project-desc">
+              collaboration with the UC Berkeley High School Ethnic Studies Initiative.
+              used agricultural and food access data to analyze the relationship between
+              Indigenous communities and food security in the US.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Python</span>
+              <span class="tag">pandas</span>
+              <span class="tag">GeoPandas</span>
+              <span class="tag">data journalism</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <span class="section-label">03 — contact</span>
+      <div class="contact-grid">
+        <div>
+          <h2 class="contact-heading">get<br>in touch</h2>
+          <p class="contact-sub">
+            open to full-time roles, freelance data work, and conversations
+            about civic tech, journalism, and anything in between.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a href="#" class="contact-link">
+            <span class="contact-link-label">email</span>
+            <span class="contact-link-value">areeya@berkeley.edu</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-link-label">github</span>
+            <span class="contact-link-value">github.com/areeyat</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-link-label">linkedin</span>
+            <span class="contact-link-value">linkedin.com/in/areeya-tipyasothi</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-link-label">resume</span>
+            <span class="contact-link-value">download PDF ↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer></footer>
+
+  <footer>
+    <span class="footer-text">© 2025 — built by vibes</span>
+    <span class="footer-text">areeya tipyasothi</span>
+  </footer>
+
+  <script src="asterisk.js"></script>
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
 </body>
 </html>
