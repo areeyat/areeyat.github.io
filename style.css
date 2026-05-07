@@ -130,6 +130,12 @@ section {
   line-height: 1.7;
 }
 
+.hero-heading {
+  font-family: var(--font-sub);
+  font-size: 3rem;
+  
+}
+
 /* ── ABOUT ── */
 #about .about-grid {
   display: grid;
@@ -303,6 +309,17 @@ section {
 .contact-link-value {
   font-size: 0.9rem;
 }
+
+/* ── INLINE LINK ── */
+.link {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #444;
+  transition: text-decoration-color 0.2s;
+}
+
+.link:hover { text-decoration-color: var(--white); }
 
 /* ── FOOTER ── */
 footer {
