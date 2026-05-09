@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hire me — areeya tipyasothi</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&family=Amaranth:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      border: var(--border);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .service-num {
+      font-family: var(--font-sub);
+      font-size: 0.7rem;
+      color: var(--mid);
+      letter-spacing: 0.1em;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .hire-cta {
+      margin-top: 4rem;
+      max-width: 900px;
+      border-top: var(--border);
+      padding-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hire-cta-text {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--mid);
+      max-width: 40ch;
+      line-height: 1.7;
+    }
+
+    .hire-cta-link {
+      font-family: var(--font-sub);
+      font-size: 1rem;
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: #444;
+      white-space: nowrap;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .hire-cta-link:hover { text-decoration-color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name-row">
+      <a href="index.html" class="nav-logo">areeya tipyasothi</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#projects">projects</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="hire-me.html" class="active">hire me</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="hire-me">
+      <span class="section-label">05 — hire me</span>
+      <div class="about-grid">
+        <div>
+          <h2 class="about-heading">let's<br>work</h2>
+        </div>
+        <div class="about-body">
+          <p>
+            available for freelance and contract work in data analysis, research, and visualization.
+            if you have a project in mind, i'd love to hear about it.
+          </p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <div class="service-title">data analysis</div>
+          <p class="service-desc">
+            cleaning, wrangling, and analyzing datasets to surface
+            meaningful patterns. python, pandas, SQL.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <div class="service-title">data visualization</div>
+          <p class="service-desc">
+            interactive charts, dashboards, and static graphics
+            that make numbers legible. plotly, dash, flourish.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <div class="service-title">data journalism</div>
+          <p class="service-desc">
+            reporting with data as a source: public records,
+            statistical analysis, and story-driven findings.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <div class="service-title">research support</div>
+          <p class="service-desc">
+            quantitative research assistance, survey analysis,
+            and literature synthesis for academic or policy projects.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hire-cta">
+        <p class="hire-cta-text">
+          interested in working together? reach out and tell me about your project.
+        </p>
+        <a href="mailto:areeya@berkeley.edu" class="hire-cta-link">get in touch →</a>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-text">© 2025 — built with <3</span>
+    <span class="footer-text">areeya tipyasothi</span>
+  </footer>
+
+</body>
+</html>
