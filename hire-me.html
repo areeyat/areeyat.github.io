@@ -335,6 +335,78 @@
       line-height: 1.55;
     }
 
+    /* ── PRICING ── */
+    .pricing { margin-top: 5rem; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 15rem 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .price-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .price small {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.15rem;
+    }
+
+    .price-card {
+      border: 1px solid var(--ink);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .price-sub {
+      font-size: 0.85rem;
+      color: var(--faint);
+    }
+
+    .pricing-blurb {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 56ch;
+    }
+
+    .pricing-points {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .pricing-points li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-left: 1rem;
+      border-left: 2px solid var(--ink);
+    }
+
+    .pricing-points strong { color: var(--ink); }
+
     /* ── CTA ── */
     .cta {
       margin-top: 5rem;
@@ -359,7 +431,7 @@
       max-width: 40ch;
     }
 
-    .cta-link {
+    .book-link {
       display: inline-block;
       background: #fff;
       color: var(--ink);
@@ -370,7 +442,7 @@
       white-space: nowrap;
       transition: opacity 0.15s;
     }
-    .cta-link:hover { opacity: 0.8; }
+    .book-link:hover { opacity: 0.8; }
 
     a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
@@ -385,6 +457,9 @@
       .featured { padding: 2rem 1.5rem; }
       .cost-label { flex-direction: column; gap: 0.1rem; }
       .steps { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .price-cards { grid-template-columns: 1fr 1fr; }
+      .price { font-size: 2.6rem; }
       .cta { flex-direction: column; align-items: flex-start; padding: 2rem; }
     }
   </style>
@@ -602,13 +677,43 @@
       </ol>
     </section>
 
+    <section class="pricing" aria-labelledby="pricing-head">
+      <p class="section-head" id="pricing-head">pricing</p>
+      <div class="pricing-grid">
+        <div class="price-cards">
+          <div class="price-card">
+            <span class="price-label">one-off projects start at</span>
+            <span class="price">$200</span>
+            <span class="price-sub">final price depends on scope</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">ongoing engagements</span>
+            <span class="price">$50<small>/hr</small></span>
+            <span class="price-sub">for regular, continuing work</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <p class="pricing-blurb">
+            I'm passionate about helping small businesses. You keep your community running,
+            and you deserve the same tools and insights that big companies have, at a price that makes sense.
+            Tell me what you're working with, and I'll do my best to find something that fits your budget.
+          </p>
+          <ul class="pricing-points">
+            <li><strong>clear upfront.</strong> You'll know exactly what you're paying before any work starts. No surprise invoices.</li>
+            <li><strong>built around your budget.</strong> If the full project doesn't fit right now, we can start small and build from there.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <aside class="cta">
       <div>
         <h2>interested in working together?</h2>
-        <p>Reach out and tell me about your project.</p>
+        <p>Book a time to chat about your project.</p>
       </div>
-      <a href="mailto:areeya@berkeley.edu" class="cta-link">get in touch →</a>
+      <a href="https://calendar.app.google/TXT5xfFez37uTgvC6" class="book-link" target="_blank" rel="noopener">book a call →</a>
     </aside>
+
 
   </main>
 </body>
