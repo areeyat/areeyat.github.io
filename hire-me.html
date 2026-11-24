@@ -11,28 +11,32 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --ink: #111;
+      --muted: #666;
+      --faint: #a3a3a3;
+      --line: #e5e5e5;
+      --wash: #f6f5f3;
+    }
+
     body {
-      background: #ffffff;
-      color: #111111;
+      background: #fff;
+      color: var(--ink);
       font-family: 'Amaranth', sans-serif;
       font-size: 16px;
       line-height: 1.6;
-      min-height: 100vh;
     }
 
     .page {
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 2rem 6rem;
+      padding: 4rem 2rem 6rem;
     }
 
-    .intro {
-      margin-bottom: 3.5rem;
-    }
-
+    /* ── HERO ── */
     .label {
       font-size: 0.75rem;
-      color: #aaa;
+      color: var(--faint);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -41,161 +45,571 @@
     h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .lede {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 46ch;
+      line-height: 1.55;
+    }
+
+    /* ── AT A GLANCE ── */
+    .glance {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 1.25rem;
+      border-top: 1px solid var(--ink);
+      margin: 3.5rem 0 5rem;
+    }
+
+    .glance a {
+      display: block;
+      padding: 1rem 1rem 0 0;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .glance a:hover { opacity: 0.45; }
+
+    .glance .num {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--faint);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+
+    .glance .name {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head {
+      font-size: 0.75rem;
+      color: var(--faint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
 
-    .intro-text {
-      font-size: 1rem;
-      color: #555;
-      max-width: 52ch;
-      line-height: 1.75;
+    /* ── SERVICES ── */
+    .service {
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+      gap: 0 1rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 1rem;
+    }
+    .service:last-of-type { border-bottom: 1px solid var(--line); }
+
+    .service .num {
+      font-size: 0.8rem;
+      color: var(--faint);
+      letter-spacing: 0.1em;
+      padding-top: 0.45rem;
     }
 
-    .services {
+    .service h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .service .summary {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 56ch;
+      line-height: 1.6;
+    }
+
+    .details {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: #e5e5e5;
-      border: 1px solid #e5e5e5;
-      margin-bottom: 4rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
 
-    .service-card {
-      background: #ffffff;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+    .detail {
+      background: var(--wash);
+      padding: 1.1rem 1.25rem;
     }
 
-    .service-num {
+    .detail h3 {
       font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--faint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .detail li + li { margin-top: 0.4rem; }
+
+    .detail.wide { grid-column: 1 / -1; }
+    .detail.wide ul { columns: 2; column-gap: 2rem; }
+    .detail.wide li { break-inside: avoid; margin: 0 0 0.4rem; }
+
+    .detail li::before {
+      content: "—";
+      color: var(--faint);
+      margin-right: 0.5rem;
+    }
+
+    .detail.questions li::before { content: none; }
+    .detail.questions li { font-style: italic; }
+
+    /* ── FEATURED: BUILD ── */
+    .featured {
+      background: var(--ink);
+      color: #fff;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .featured .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid #555;
       color: #ccc;
-      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 1.25rem;
     }
 
-    .service-title {
+    .featured h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .featured .summary {
+      color: #bbb;
       font-size: 1.05rem;
-      font-weight: 700;
-      color: #111;
-      margin-top: 0.3rem;
+      max-width: 54ch;
+      line-height: 1.6;
     }
 
-    .service-desc {
-      font-size: 0.875rem;
-      color: #777;
-      line-height: 1.65;
-      margin-top: 0.2rem;
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    ul {
-      font-family: 'Amaranth', sans-serif;
-      font-size: 0.875rem;
-      color: #777;
-      line-height: 1.65;
-      padding-left: 1.25rem;
-      margin: 0.4rem 0;
+    .compare > div {
+      padding: 1.25rem;
+      border: 1px solid #333;
     }
 
-    .cta {
-      border-top: 1px solid #e5e5e5;
-      padding-top: 2.5rem;
+    .compare .yours {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+
+    .compare h3 {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.6rem;
+    }
+
+    .compare ul { list-style: none; font-size: 0.95rem; line-height: 1.5; }
+    .compare li + li { margin-top: 0.45rem; }
+    .compare .theirs li { color: #999; }
+    .compare .theirs li::before { content: "✕"; margin-right: 0.6rem; color: #666; }
+    .compare .yours li::before { content: "✓"; margin-right: 0.6rem; font-weight: 700; }
+
+    .costs {
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid #333;
+    }
+
+    .costs h3 {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1.25rem;
+    }
+
+    .cost-row + .cost-row { margin-top: 1.5rem; }
+
+    .cost-label {
       display: flex;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .cost-label span { color: #ccc; }
+    .cost-label strong { font-size: 1.15rem; white-space: nowrap; }
+
+    .bar {
+      height: 10px;
+      background: #2a2a2a;
+    }
+    .bar .fill { display: block; height: 100%; }
+    .bar .fill.sub { width: 100%; background: #777; }
+    .bar .fill.host { width: 20%; background: #fff; }
+
+    .cost-note {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 0.45rem;
+      line-height: 1.5;
+    }
+
+    .cost-fine {
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 1.25rem;
+    }
+
+    .featured .examples {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+    .featured .examples strong { color: #fff; font-weight: 700; }
+
+    /* ── PROCESS ── */
+    .process {
+      margin-top: 5rem;
+    }
+
+    .steps {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      border-top: 1px solid var(--ink);
+      padding-top: 1rem;
+    }
+
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      display: block;
+      font-size: 0.7rem;
+      color: var(--faint);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .steps p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      margin-top: 5rem;
+      background: var(--ink);
+      color: #fff;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 2rem;
     }
 
-    .cta-text {
-      font-size: 0.9rem;
-      color: #777;
+    .cta h2 {
+      font-size: 1.6rem;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta p {
+      font-size: 0.95rem;
+      color: #bbb;
       max-width: 40ch;
-      line-height: 1.75;
     }
 
     .cta-link {
       display: inline-block;
-      font-size: 0.9rem;
+      background: #fff;
+      color: var(--ink);
       font-weight: 700;
-      color: #111;
+      font-size: 0.95rem;
       text-decoration: none;
-      border-bottom: 2px solid #111;
-      padding-bottom: 2px;
+      padding: 0.8rem 1.4rem;
       white-space: nowrap;
       transition: opacity 0.15s;
     }
-    .cta-link:hover { opacity: 0.4; }
+    .cta-link:hover { opacity: 0.8; }
 
-    @media (max-width: 540px) {
-      .services { grid-template-columns: 1fr; }
-      .cta { flex-direction: column; gap: 1.5rem; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .glance { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+      .service { grid-template-columns: 1fr; }
+      .service .num { padding: 0 0 0.25rem; }
+      .details { grid-template-columns: 1fr; }
+      .detail.wide ul { columns: 1; }
+      .compare { grid-template-columns: 1fr; }
+      .featured { padding: 2rem 1.5rem; }
+      .cost-label { flex-direction: column; gap: 0.1rem; }
+      .steps { grid-template-columns: 1fr; }
+      .cta { flex-direction: column; align-items: flex-start; padding: 2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="intro">
-      <p class="label">S + G Data Analytics for Small Businesses</p>
-      <h1>Data Services</h1>
-      <p class="intro-text">
-        Data can be complicated and messy, but it doesn't have to be! 
-      </p>
-    </div>
+  <main class="page">
 
-    <div class="services">
-      <div class="service-card">
-        <span class="service-num">01</span>
-        <div class="service-title">data cleaning</div>
-        <p class="service-desc">
-          Spreadsheet/data clean-up. Got a messy spreadsheet with typos, duplicates, and messed-up formatting?
-          I'll clean it up for you and give the data back to you in a format that you'll actually use, along with
-          a summary of 1) what I did and 2) recommendations for data entry going forward, so that your data stays clean
-          and organized. 
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-num">02</span>
-        <div class="service-title">one-shot questions</div>
-        <p class="service-desc">
-          I'll use data to answer any nagging questions you have! Some questions you may have:
-        </p>
-          <ul>
-          <li>Are my Tuesday promotions actually working?</li>
-          <li>Which products should I stop carrying? </li>
-          <li>What items sell more when it rains? </li>
-          </ul>
-        <p class="service-desc">
-          You will receive a 1-2 page report with supporting data and recommendations, if applicable.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-num">03</span>
-        <div class="service-title">dashboards</div>
-        <p class="service-desc">
-          Understanding data can be hard. I'll make it easier by designing a visual dashboard customized
-          for your workflow. 
-          <br> 
-          You'll receive access to a private customizable dashboard, along with a walkthrough and instructions
-          on how to use it.
-        </p>
-      </div>
-      <div class="service-card">
-        <span class="service-num">04</span>
-        <div class="service-title">the world is your oyster!</div>
-        <p class="service-desc">
-          Got any other data needs or project ideas? Let me know!
-        </p>
-      </div>
-    </div>
-
-    <div class="cta">
-      <p class="cta-text">
-        interested in working together? reach out and tell me about your project.
+    <header>
+      <p class="label">sakigumi data</p>
+      <h1>Own your tools.<br>Understand your data.</h1>
+      <p class="lede">
+        Tired of paying every month for apps and software you barely use?
+        I build custom websites, apps, and tools that your business owns outright.
+        I also help you clean up your data, answer real questions with it, and keep an eye on it.
       </p>
+    </header>
+
+    <nav aria-label="Services">
+      <ol class="glance">
+        <li><a href="#build"><span class="num">01</span><span class="name">ditch the subscription</span></a></li>
+        <li><a href="#cleaning"><span class="num">02</span><span class="name">data cleaning &amp; automation</span></a></li>
+        <li><a href="#questions"><span class="num">03</span><span class="name">one-shot questions</span></a></li>
+        <li><a href="#dashboards"><span class="num">04</span><span class="name">dashboards</span></a></li>
+        <li><a href="#custom"><span class="num">05</span><span class="name">something else</span></a></li>
+      </ol>
+    </nav>
+
+    <section aria-labelledby="services-head">
+      <p class="section-head" id="services-head">services</p>
+
+      <article class="featured" id="build">
+        <span class="tag">01 · featured</span>
+        <h2>ditch the subscription.<br>I'll build it for you.</h2>
+        <p class="summary">
+          Lots of small businesses pay monthly fees for websites, booking tools, and apps
+          that a custom build could replace. I'll build one that fits how you actually work,
+          and it's yours to keep.
+        </p>
+        <div class="compare">
+          <div class="theirs">
+            <h3>renting software</h3>
+            <ul>
+              <li>a monthly bill that never ends</li>
+              <li>prices go up when they decide</li>
+              <li>paying for features you don't use</li>
+              <li>your data lives on their platform</li>
+            </ul>
+          </div>
+          <div class="yours">
+            <h3>built for you</h3>
+            <ul>
+              <li>you pay once for the build, plus a small hosting fee</li>
+              <li>you own it: the code, the site, and your data</li>
+              <li>only the features your business needs</li>
+              <li>a walkthrough and instructions at handoff</li>
+            </ul>
+          </div>
+        </div>
+        <div class="costs">
+          <h3>what you'd pay each month</h3>
+          <div class="cost-row">
+            <div class="cost-label">
+              <span>a typical app subscription</span>
+              <strong>$30–$100+ / month</strong>
+            </div>
+            <div class="bar"><span class="fill sub"></span></div>
+            <p class="cost-note">per app, and often per user. That's $360–$1,200+ a year, every year.</p>
+          </div>
+          <div class="cost-row">
+            <div class="cost-label">
+              <span>hosting your own custom build</span>
+              <strong>$0–$20 / month</strong>
+            </div>
+            <div class="bar"><span class="fill host"></span></div>
+            <p class="cost-note">simple websites can often be hosted for free. Hosting pays for the server, not for the right to use your own tool.</p>
+          </div>
+          <p class="cost-fine">Typical ranges. Your hosting cost depends on what we build, and I'll give you an estimate before we start.</p>
+        </div>
+        <p class="examples">
+          <strong>things I can build:</strong>
+          business websites · booking &amp; scheduling tools · inventory trackers ·
+          order &amp; intake forms · internal apps for your team
+        </p>
+      </article>
+
+      <article class="service" id="cleaning">
+        <span class="num">02</span>
+        <div>
+          <h2>data cleaning &amp; automation</h2>
+          <p class="summary">
+            Got a messy spreadsheet with typos, duplicates, and messed-up formatting?
+            I'll clean it up and give it back in a format you'll actually use. Then, if you're
+            spending hours every week copying, pasting, and reformatting the same data,
+            I'll set it up so the spreadsheet does that work for you.
+          </p>
+          <div class="details">
+            <div class="detail">
+              <h3>what I fix</h3>
+              <ul>
+                <li>typos, duplicates, and inconsistent entries</li>
+                <li>mixed-up dates, names, phone numbers, and addresses</li>
+                <li>data split across multiple files or tabs</li>
+                <li>broken formulas and messy formatting</li>
+                <li>spreadsheets that grew over years without a plan</li>
+              </ul>
+            </div>
+            <div class="detail">
+              <h3>you'll get</h3>
+              <ul>
+                <li>your cleaned, organized data</li>
+                <li>a summary of what I changed and why</li>
+                <li>recommendations for data entry so it stays clean</li>
+                <li>a tidy template to use going forward</li>
+              </ul>
+            </div>
+            <div class="detail wide">
+              <h3>automate the repetitive stuff</h3>
+              <ul>
+                <li>combine weekly exports into one sheet automatically</li>
+                <li>auto-generated totals, summaries, and reports</li>
+                <li>dropdowns and checks that stop bad data at entry</li>
+                <li>alerts when stock is low or a number looks off</li>
+                <li>forms that feed straight into your spreadsheet</li>
+                <li>a walkthrough so you know how it all works</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service" id="questions">
+        <span class="num">03</span>
+        <div>
+          <h2>one-shot questions</h2>
+          <p class="summary">
+            Have a nagging question about your business? I'll dig into your data and answer it.
+          </p>
+          <div class="details">
+            <div class="detail questions">
+              <h3>questions like</h3>
+              <ul>
+                <li>"Are my Tuesday promotions actually working?"</li>
+                <li>"Which products should I stop carrying?"</li>
+                <li>"What items sell more when it rains?"</li>
+              </ul>
+            </div>
+            <div class="detail">
+              <h3>you'll get</h3>
+              <ul>
+                <li>a 1–2 page report with the answer</li>
+                <li>supporting data and charts</li>
+                <li>recommendations, where they apply</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service" id="dashboards">
+        <span class="num">04</span>
+        <div>
+          <h2>dashboards</h2>
+          <p class="summary">
+            Understanding data can be hard. I'll design a visual dashboard built around
+            your workflow, so the numbers you care about are always one click away.
+          </p>
+          <div class="details">
+            <div class="detail">
+              <h3>good for</h3>
+              <ul>
+                <li>tracking sales, inventory, or customers over time</li>
+                <li>numbers you check every week</li>
+                <li>sharing results with a team</li>
+              </ul>
+            </div>
+            <div class="detail">
+              <h3>you'll get</h3>
+              <ul>
+                <li>a private, customizable dashboard</li>
+                <li>a walkthrough of how it works</li>
+                <li>written instructions for using it</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service" id="custom">
+        <span class="num">05</span>
+        <div>
+          <h2>something else?</h2>
+          <p class="summary">
+            The world is your oyster! Got other data needs or a project idea that doesn't fit
+            above? Tell me about it and we'll figure it out together.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="process" aria-labelledby="process-head">
+      <p class="section-head" id="process-head">how it works</p>
+      <ol class="steps">
+        <li>
+          <strong>reach out</strong>
+          <p>Tell me about your business and what you're hoping to learn or fix.</p>
+        </li>
+        <li>
+          <strong>scope it together</strong>
+          <p>We'll agree on what I'll deliver, so there are no surprises.</p>
+        </li>
+        <li>
+          <strong>get your results</strong>
+          <p>I'll deliver the work and walk you through it.</p>
+        </li>
+      </ol>
+    </section>
+
+    <aside class="cta">
+      <div>
+        <h2>interested in working together?</h2>
+        <p>Reach out and tell me about your project.</p>
+      </div>
       <a href="mailto:areeya@berkeley.edu" class="cta-link">get in touch →</a>
-    </div>
+    </aside>
 
-  </div>
+  </main>
 </body>
 </html>
